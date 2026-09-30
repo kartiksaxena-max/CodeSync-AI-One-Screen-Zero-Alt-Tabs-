@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeSync AI</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">CodeSync AI</div>
+    <div class="lesson-title" id="lessonTitle">Loading lesson</div>
+    <div class="top-actions">
+      <div class="seg" role="group" aria-label="Caption language">
+        <button id="langEn" class="on" type="button">English</button>
+        <button id="langHi" type="button" lang="hi">हिन्दी</button>
+      </div>
+      <button id="perfChip" class="chip" type="button" aria-haspopup="dialog">Checking engine</button>
+    </div>
+  </header>
+
+  <main class="split">
+    <section class="col lesson" aria-label="Lesson">
+      <div class="stage" id="stage">
+        <video id="video" controls preload="metadata" playsinline></video>
+        <div id="cropLayer" class="crop-layer" hidden>
+          <div class="crop-bar">
+            <span id="cropHint">Drag over the code you want. The dashed box is the teacher's code area.</span>
+            <button id="cropGo" class="btn primary" type="button">Capture code</button>
+            <button id="cropCancel" class="btn" type="button">Cancel</button>
+          </div>
+          <div id="cropBox" class="crop-box"></div>
+        </div>
+      </div>
+      <div class="stage-bar">
+        <button id="captureBtn" class="btn primary" type="button">Capture code from this frame</button>
+        <span id="clock" class="clock">0:00 / 0:00</span>
+        <span id="chapter" class="chapter"></span>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="transcript" type="button">Transcript</button>
+        <button role="tab" aria-selected="false" data-tab="slides" type="button">Slides</button>
+        <button role="tab" aria-selected="false" data-tab="search" type="button">Search</button>
+        <button role="tab" aria-selected="false" data-tab="notes" type="button">Notes</button>
+      </div>
+      <div class="tabpane" id="pane-transcript"><ol id="transcript" class="transcript"></ol></div>
+      <div class="tabpane" id="pane-slides" hidden>
+        <div class="slide-wrap"><img id="slideImg" alt="Current slide"></div>
+        <div class="slide-nav">
+          <button id="slidePrev" class="btn" type="button">Previous slide</button>
+          <span id="slideCount"></span>
+          <button id="slideNext" class="btn" type="button">Next slide</button>
+          <label class="check"><input type="checkbox" id="slideSync" checked> Follow the video</label>
+        </div>
+      </div>
+      <div class="tabpane" id="pane-search" hidden>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Search the video, slides and teacher's code" autocomplete="off">
+          <button id="searchBtn" class="btn primary" type="button">Search</button>
+        </div>
+        <ul id="searchResults" class="results"></ul>
+      </div>
+      <div class="tabpane" id="pane-notes" hidden>
+        <div class="search-row">
+          <input id="noteInput" type="text" placeholder="Write a note for this moment">
+          <button id="noteBtn" class="btn primary" type="button">Save note</button>
+        </div>
+        <ul id="noteList" class="results"></ul>
+      </div>
+    </section>
+
+    <section class="col work" aria-label="Your code">
+      <div class="editor-head">
+        <span class="file">main.py</span>
+        <span class="legend"><i class="swatch"></i>Highlighted lines link to the moment the teacher wrote them</span>
+      </div>
+      <div class="editor" id="editor">
+        <div class="hlayer" id="hlayer" aria-hidden="true"></div>
+        <textarea id="code" spellcheck="false" wrap="off" aria-label="Code editor"></textarea>
+        <div class="gutter" id="gutter"></div>
+      </div>
+
+      <div id="captureSheet" class="sheet" hidden>
+        <div class="sheet-head">
+          <strong id="sheetTitle">Code from the video</strong>
+          <span id="sheetMeta" class="muted"></span>
+        </div>
+        <textarea id="sheetCode" spellcheck="false" wrap="off" aria-label="Captured code, you can fix it before adding"></textarea>
+        <div id="sheetFixes" class="fixes"></div>
+        <div class="sheet-actions">
+          <button id="sheetAdd" class="btn primary" type="button">Add below current line</button>
+          <button id="sheetReplace" class="btn" type="button">Replace editor content</button>
+          <button id="sheetClose" class="btn" type="button">Discard</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="runBtn" class="btn primary" type="button">Run code</button>
+        <button id="checkBtn" class="btn" type="button" hidden>Check my answer</button>
+        <button id="hintBtn" class="btn" type="button" hidden>Give me a hint</button>
+        <span class="muted small">Ctrl+Enter runs</span>
+      </div>
+      <div class="out" id="out" aria-live="polite">
+        <p class="muted">Pause the video on the teacher's code and press <em>Capture code from this frame</em>. Or type your own code here.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside id="perf" class="drawer" role="dialog" aria-label="Engine and performance" hidden>
+    <div class="drawer-head">
+      <strong>Engine and performance</strong>
+      <button id="perfClose" class="btn" type="button">Close</button>
+    </div>
+    <div id="perfBody"></div>
+  </aside>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

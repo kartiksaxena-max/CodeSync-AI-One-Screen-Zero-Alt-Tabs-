@@ -1,0 +1,42 @@
+[
+  {
+    "time": 6.0,
+    "text": "def total_marks(marks):"
+  },
+  {
+    "time": 9.0,
+    "text": "    total = 0"
+  },
+  {
+    "time": 13.0,
+    "text": "    for m in marks:"
+  },
+  {
+    "time": 16.0,
+    "text": "        total += m"
+  },
+  {
+    "time": 18.0,
+    "text": "    return total"
+  },
+  {
+    "time": 28.0,
+    "text": "scores = [72, 85, 91]"
+  },
+  {
+    "time": 31.0,
+    "text": "print(total_marks(scores))"
+  },
+  {
+    "time": 41.0,
+    "text": "def average(marks):"
+  },
+  {
+    "time": 43.0,
+    "text": "    return total_marks(marks) / len(marks)"
+  },
+  {
+    "time": 48.0,
+    "text": "print(average(scores))"
+  }
+]

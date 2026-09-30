@@ -1,0 +1,139 @@
+{
+  "id": "sample-loops",
+  "title": "Python: loops and functions",
+  "language": "python",
+  "video": "video.mp4",
+  "duration": 60,
+  "transcript_source": "authored sample text (not speech-to-text output); video is silent",
+  "transcript": [
+    {
+      "start": 0,
+      "end": 6,
+      "text": "Welcome. In this lesson we will write a function that adds up a list of marks using a for loop.",
+      "text_hi": "स्वागत है। इस पाठ में हम एक फ़ंक्शन लिखेंगे जो for लूप की मदद से अंकों की सूची का जोड़ निकालता है।"
+    },
+    {
+      "start": 6,
+      "end": 13,
+      "text": "First, define the function with `def`. We call it `total_marks`, and it takes one parameter, `marks`.",
+      "text_hi": "सबसे पहले `def` से फ़ंक्शन बनाते हैं। हम इसे `total_marks` नाम देते हैं और यह एक पैरामीटर `marks` लेता है।"
+    },
+    {
+      "start": 13,
+      "end": 20,
+      "text": "Inside, we start `total` at zero. Then a `for` loop visits every mark `m` and adds it to `total`. Finally we `return` the total.",
+      "text_hi": "अंदर हम `total` को शून्य से शुरू करते हैं। फिर `for` लूप हर अंक `m` को देखता है और उसे `total` में जोड़ता है। अंत में हम `total` को `return` करते हैं।"
+    },
+    {
+      "start": 20,
+      "end": 26,
+      "text": "Remember the indentation. Everything inside the function and inside the loop is pushed in by four spaces.",
+      "text_hi": "इंडेंटेशन याद रखें। फ़ंक्शन और लूप के अंदर की हर चीज़ चार स्पेस अंदर होती है।"
+    },
+    {
+      "start": 26,
+      "end": 33,
+      "text": "Now let's use it. We make a list called `scores` with three numbers and print the result of `total_marks`.",
+      "text_hi": "अब इसे इस्तेमाल करते हैं। हम तीन संख्याओं की एक सूची `scores` बनाते हैं और `total_marks` का नतीजा प्रिंट करते हैं।"
+    },
+    {
+      "start": 33,
+      "end": 40,
+      "text": "Run it and you should see 248. That is 72 plus 85 plus 91.",
+      "text_hi": "इसे चलाएँ तो आपको 248 दिखना चाहिए। यानी 72 जमा 85 जमा 91।"
+    },
+    {
+      "start": 40,
+      "end": 47,
+      "text": "Next, `average`. It reuses `total_marks` and divides by `len` of the list, which counts the items.",
+      "text_hi": "अब `average`। यह `total_marks` का दोबारा इस्तेमाल करता है और सूची की `len` से भाग देता है, जो आइटम गिनती है।"
+    },
+    {
+      "start": 47,
+      "end": 54,
+      "text": "Print `average` of `scores`. You get 82.666, a float, because division in Python always gives a float.",
+      "text_hi": "`scores` का `average` प्रिंट करें। आपको 82.666 मिलता है, एक फ़्लोट, क्योंकि पायथन में भाग हमेशा फ़्लोट देता है।"
+    },
+    {
+      "start": 54,
+      "end": 60,
+      "text": "Checkpoint: write a function `count_above` that counts how many marks are above a limit. Try it yourself before moving on.",
+      "text_hi": "चेकपॉइंट: एक फ़ंक्शन `count_above` लिखें जो गिनता है कि कितने अंक किसी सीमा से ऊपर हैं। आगे बढ़ने से पहले खुद कोशिश करें।"
+    }
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": "Intro"
+    },
+    {
+      "time": 6,
+      "title": "Defining total_marks"
+    },
+    {
+      "time": 26,
+      "title": "Calling and running it"
+    },
+    {
+      "time": 40,
+      "title": "The average function"
+    },
+    {
+      "time": 54,
+      "title": "Checkpoint"
+    }
+  ],
+  "slides": [
+    {
+      "img": "slides/slide1.png",
+      "time": 0,
+      "title": "Loops and functions",
+      "text": "Loops and functions. Goal: add up a list of marks Tools: def, for, return"
+    },
+    {
+      "img": "slides/slide2.png",
+      "time": 6,
+      "title": "Anatomy of a function",
+      "text": "Anatomy of a function. def name(parameter): indented body return result"
+    },
+    {
+      "img": "slides/slide3.png",
+      "time": 54,
+      "title": "Checkpoint: count_above",
+      "text": "Checkpoint: count_above. Write count_above(marks, limit) Count marks greater than limit"
+    }
+  ],
+  "capture_crop": [
+    0.0,
+    0.08,
+    1.0,
+    0.72
+  ],
+  "checkpoints": [
+    {
+      "time": 54,
+      "title": "Write count_above",
+      "prompt": "Write count_above(marks, limit) so it returns how many marks are greater than limit.",
+      "starter": "def count_above(marks, limit):\n    # your code here\n    pass\n",
+      "tests": "print(count_above([72, 85, 91], 80))\nprint(count_above([10, 20], 50))",
+      "expected": "2\n0",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need something that starts at zero and grows while you loop over the marks. Which variable in total_marks does that?",
+          "jump": 13
+        },
+        {
+          "level": 2,
+          "text": "Add an if inside the for loop: only when m > limit should the counter go up by one.",
+          "jump": 13
+        },
+        {
+          "level": 3,
+          "text": "def count_above(marks, limit):\n    count = 0\n    for m in marks:\n        if m > limit:\n            count += 1\n    return count\n",
+          "jump": null
+        }
+      ]
+    }
+  ]
+}
